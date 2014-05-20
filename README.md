@@ -1,0 +1,4 @@
+hashwords
+=========
+
+Human-readable hashes
