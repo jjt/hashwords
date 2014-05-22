@@ -1,0 +1,29 @@
+{
+  "name": "hashwords",
+  "main": [
+    "dist/hashwords.min.js",
+    "index.js"
+  ],
+  "version": "0.1.2",
+  "homepage": "http://jjt.io/hashwords",
+  "authors": [
+    "Jason Trill <jason@jasontrill.com>"
+  ],
+  "description": "Human-readable hashes",
+  "moduleType": [
+    "node",
+    "global"
+  ],
+  "keywords": [
+    "hash"
+  ],
+  "license": "GPLv2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src"
+  ]
+}
