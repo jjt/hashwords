@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="Hashwords: human readable hashes for Node.js and the browser">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <link rel="stylesheet" href="bower_components/pure/pure-min.css">
+  <link rel="stylesheet" href="bower_components/pure/grids-responsive-min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class=pure-g-r>
+    <div class=pure-u-1>
+      <h1 class="siteTitle xxxlg">Hashwords</h1>
+      <p class="blurb lg">Human-readable hashes for Node.js and the browser</p>
+      <p><a href="https://github.com/jjt/hashwords">Source on GitHub</a>
+    </div>
+  </div>
+  <div class=pure-g-r>
+    <div class="pure-u-1">
+      <form class="pure-form" action="" method="post">
+        <label for=input><h2>Example</h2></label>
+        <input type="text" name="input" id="input" placeholder="Enter text here"/>
+      </form>
+    </div>
+    <div class="pure-u-1">
+      <p class=xlg id=output></p>
+    </div>
+  </div>
+  <div class="pure-g-r">
+    <div class="pure-g-1">
+      <h2>Installation - Node.js</h2>
+      <pre><code>
+$ npm install hashwords
+      </pre></code>
+      <h2>Installation - Browser</h2>
+      <pre><code>
+$ bower install hashwords
+      </pre></code>
+      <p>Bower is prefered, but you can also
+        <a href="https://github.com/jjt/hashwords/archive/master.zip">download a zip</a>.
+      </p>
+    </div>
+  </div>
+  <div class="pure-g-r">
+    <div class="pure-u-1">
+      <h2>Usage</h2>
+      <pre><code>
+// Node.js:
+// var hashwords = require('hashwords');
+
+// Browser:
+// &lt;script src="path/to/hashwords.min.js"&gt;&lt;/script&gt;
+ 
+var hw = hashwords(),
+    salt = 'saltysalt111',
+    hwSalt = hashwords({salt: salt}),
+    input = 'user@email.com';
+
+hw.hash(input);
+// ['Political', 'Predator', 'Project'] 
+
+hw.hashStr(input);
+// 'Political Predator Project'
+
+hwSalt.hashStr(input);
+// 'Shoddy Pond Installation'
+
+hw.random();
+// Something like
+// ['Enormous', 'Baby', 'Slice']
+
+hw.randomStr();
+// Something like
+// 'Plain Shirt Facility'
+
+      </code></pre>
+    </div>
+  </div>
+
+  <script src="dist/hashwords.min.js"></script>
+  <script>
+    (function(){
+      /**
+      * https://gist.github.com/eduardocereto/955642
+      * Cross Browser helper to addEventListener.
+      *
+      * @param {HTMLElement} obj The Element to attach event to.
+      * @param {string} evt The event that will trigger the binded function.
+      * @param {function(event)} fnc The function to bind to the element. 
+      * @return {boolean} true if it was successfuly binded.
+      */
+      function cb_addEventListener(obj, evt, fnc) {
+          // W3C model
+          if (obj.addEventListener) {
+              obj.addEventListener(evt, fnc, false);
+              return true;
+          } 
+          // Microsoft model
+          else if (obj.attachEvent) {
+              return obj.attachEvent('on' + evt, fnc);
+          }
+          // Browser don't support W3C or MSFT model, go on with traditional
+          else {
+              evt = 'on'+evt;
+              if(typeof obj[evt] === 'function'){
+                  // Object already has a function on traditional
+                  // Let's wrap it with our own function inside another function
+                  fnc = (function(f1,f2){
+                      return function(){
+                          f1.apply(this,arguments);
+                          f2.apply(this,arguments);
+                      }
+                  })(obj[evt], fnc);
+              }
+              obj[evt] = fnc;
+              return true;
+          }
+          return false;
+      };
+
+      var $input = document.getElementById('input'),
+          $output = document.getElementById('output'),
+          hw = hashwords(),
+          value = $input.value || "Enter text here";
+
+      $output.innerHTML = "&raquo; " + hw.hashStr(value);
+
+      cb_addEventListener($input, 'keypress', function(){
+        $output.innerHTML = hw.hashStr($input.value);
+      });
+
+    })()
+  </script>
+  <script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-11820998-2');ga('send','pageview');
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "hashwords-ghpages",
+  "main": "index.js",
+  "version": "0.0.0",
+  "homepage": "http://jjt.io/hashwords",
+  "authors": [
+    "Jason Trill <jason@jasontrill.com>"
+  ],
+  "description": "Human-readable hashes",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "hash"
+  ],
+  "license": "GPLv2",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.0.2",
+    "pure": "0.5.0-rc-1"
+  }
+}

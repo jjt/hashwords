@@ -1,0 +1,52 @@
+body {
+  color:#555;
+  background:#f3f3f6;
+  padding-bottom:2rem;
+}
+.pure-g, .pure-g-r {
+  max-width:40rem;
+  margin: 0 auto;
+  padding:0 1rem;
+}
+
+.xxxlg {
+  font-size:3rem;
+}
+.xlg {
+  font-size:1.6rem;
+}
+
+
+.siteTitle {
+  margin-bottom:0;
+  text-transform: uppercase;
+}
+
+.lg {
+  font-size:1.25rem;
+}
+
+.blurb {
+  margin-top:0;
+}
+
+#input {
+  width:100%;
+}
+
+#output {
+  margin-top:0.6rem;
+}
+
+h1,h2,h3,h4,h5 {
+  font-weight:normal;
+  text-transform:uppercase;
+  color:#999;
+}
+
+pre {
+  margin:0 -1rem;
+  padding:0 1rem;
+  background: #e9e9ef;
+  border:1px solid #dadade;
+}
