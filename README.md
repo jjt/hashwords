@@ -1,7 +1,7 @@
 # HASHWORDS
 
 Takes input strings and hashes them to output strings or arrays of the form "[adjective]
-[noun] [noun]". Intended to provide anonymous, persistent usernames.
+[noun] [noun]". Intended to provide memorable hashes for users or items. Inspired by Gfycat.
 
 ### Install for Node.js
     $> npm install --save hashwords
