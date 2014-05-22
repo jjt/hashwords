@@ -1,31 +1,24 @@
 {
-  "name": "animalonymous",
-  "version": "0.2.0",
-  "description": "Makes [<adjective>,<animal>] pairs/strings from input hash, or by random",
-  "keywords": [],
+  "name": "hashwords",
+  "version": "0.1.0",
+  "description": "Human-readable hashes",
+  "keywords": ['hash'],
   "author": "jason@jasontrill.com",
   "repository": {
     "type": "git",
-    "url": "git://github.com/jjt/animalonymous.git"
+    "url": "git://github.com/jjt/hashwords.git"
   },
-  "dependencies": {
-    "mocha": "*",
-    "should": "*",
+  "main": "index.js",
+  "devDependencies": {
     "gulp": "^3.6.2",
     "gulp-load-plugins": "^0.5.1",
     "gulp-coffee": "^1.4.3",
     "gulp-util": "^2.2.14",
     "coffee-script": "^1.7.1",
-    "coffee": "0.0.1"
-  },
-  "main": "index",
-  "devDependencies": {
-    "watchify": "^0.10.1",
+    "coffee": "0.0.1",
     "vinyl-source-stream": "^0.1.1",
     "browserify": "^4.1.5",
-    "gulp-uglify": "^0.3.0",
     "uglifyify": "^2.4.0",
-    "run-sequence": "^0.3.6",
     "coffeeify": "^0.6.0"
   }
 }

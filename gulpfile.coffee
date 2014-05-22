@@ -1,4 +1,3 @@
-runSequence = require 'run-sequence'
 browserify = require 'browserify'
 source = require('vinyl-source-stream')
 gulp = require 'gulp'
