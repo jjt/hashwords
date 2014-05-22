@@ -63,16 +63,16 @@ $ bower install hashwords
 var hw = hashwords(),
     salt = 'saltysalt111',
     hwSalt = hashwords({salt: salt}),
-    input = 'user@email.com';
+    input = 'test@test.com';
 
 hw.hash(input);
-// ['Political', 'Predator', 'Project'] 
+// ['Rundown', 'Job', 'Snake'] 
 
 hw.hashStr(input);
-// 'Political Predator Project'
+// 'Rundown Job Snake'
 
 hwSalt.hashStr(input);
-// 'Shoddy Pond Installation'
+// 'Annual Lobby District'
 
 hw.random();
 // Something like
