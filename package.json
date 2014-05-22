@@ -2,7 +2,7 @@
   "name": "hashwords",
   "version": "0.1.0",
   "description": "Human-readable hashes",
-  "keywords": ['hash'],
+  "keywords": ["hash"],
   "author": "jason@jasontrill.com",
   "repository": {
     "type": "git",
