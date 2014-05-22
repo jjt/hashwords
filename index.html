@@ -134,7 +134,7 @@ hw.randomStr();
 
       $output.innerHTML = "&raquo; " + hw.hashStr(value);
 
-      cb_addEventListener($input, 'keypress', function(){
+      cb_addEventListener($input, 'keyup', function(){
         $output.innerHTML = "&raquo; " + hw.hashStr($input.value);
       });
 
