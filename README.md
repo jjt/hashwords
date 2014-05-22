@@ -9,7 +9,7 @@ Takes input strings and hashes them to output strings or arrays of the form "[ad
 ### Install for the Browser
     $ bower install --save hashwords
 
-Bower is prefered, but you can also [download a zip](https://github.com/jjt/hashwords/archive/master.zip).
+Bower is prefered, but you can also [download a release manually](https://github.com/jjt/hashwords/releases).
 
 ### Usage:
 ```
