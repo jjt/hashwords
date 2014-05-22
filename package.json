@@ -1,6 +1,6 @@
 {
   "name": "hashwords",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Human-readable hashes",
   "keywords": [
     "hash"
