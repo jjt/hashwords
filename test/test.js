@@ -1,4 +1,4 @@
-var input = 'test@animalonymous.com',
+var input = 'test@test.com',
     hashwords = require('../'),
     salt = "saltysalt111",
     hw = hashwords(),
