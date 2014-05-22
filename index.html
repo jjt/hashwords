@@ -89,6 +89,19 @@ hw.randomStr();
   <script src="dist/hashwords.min.js"></script>
   <script>
     (function(){
+      var $input = document.getElementById('input'),
+          $output = document.getElementById('output'),
+          hw = hashwords(),
+          value = $input.value || "Enter text here",
+          updateOutput = function() {
+            $output.innerHTML = "&raquo; " + hw.hashStr($input.value);
+          }
+
+      $output.innerHTML = "&raquo; " + hw.hashStr(value);
+
+      cb_addEventListener($input, 'keyup', updateOutput);
+      cb_addEventListener($input, 'change', updateOutput);
+
       /**
       * https://gist.github.com/eduardocereto/955642
       * Cross Browser helper to addEventListener.
@@ -126,18 +139,6 @@ hw.randomStr();
           }
           return false;
       };
-
-      var $input = document.getElementById('input'),
-          $output = document.getElementById('output'),
-          hw = hashwords(),
-          value = $input.value || "Enter text here";
-
-      $output.innerHTML = "&raquo; " + hw.hashStr(value);
-
-      cb_addEventListener($input, 'keyup', function(){
-        $output.innerHTML = "&raquo; " + hw.hashStr($input.value);
-      });
-
     })()
   </script>
   <script>
