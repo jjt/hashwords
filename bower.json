@@ -4,7 +4,7 @@
     "dist/hashwords.min.js",
     "index.js"
   ],
-  "version": "0.1.2",
+  "version": "0.1.3",
   "homepage": "http://jjt.io/hashwords",
   "authors": [
     "Jason Trill <jason@jasontrill.com>"
@@ -24,6 +24,8 @@
     "bower_components",
     "test",
     "tests",
-    "src"
+    "src",
+    "gulpfile.*",
+    "package.json"
   ]
 }
