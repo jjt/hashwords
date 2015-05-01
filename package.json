@@ -1,6 +1,6 @@
 {
   "name": "hashwords",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Human-readable hashes",
   "keywords": [
     "hash"
@@ -11,6 +11,9 @@
     "url": "git://github.com/jjt/hashwords.git"
   },
   "main": "index.js",
+  "dependencies": {
+    "lodash": "^3.7.0"
+  },
   "devDependencies": {
     "browserify": "^4.1.5",
     "coffee-script": "^1.7.1",
@@ -19,7 +22,6 @@
     "gulp-coffee": "^1.4.3",
     "gulp-load-plugins": "^0.5.1",
     "gulp-util": "^2.2.14",
-    "lodash": "^3.7.0",
     "uglifyify": "^2.4.0",
     "vinyl-source-stream": "^0.1.1"
   }

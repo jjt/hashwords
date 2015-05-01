@@ -4,7 +4,7 @@
     "dist/hashwords.min.js",
     "index.js"
   ],
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "http://jjt.io/hashwords",
   "authors": [
     "Jason Trill <jason@jasontrill.com>"
