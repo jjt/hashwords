@@ -19,7 +19,7 @@ Bower is prefered, but you can also [download a release manually](https://github
 // Browser:
 // <script src="path/to/hashwords.min.js"></script>
 
-// Constructor takes optional options object:
+// To create an instance, call hashwords(options) with optional options object:
 //   salt: (str)
 //     Salt to apply with every call to hash/hashStr
 //     default: ""
@@ -38,12 +38,12 @@ Bower is prefered, but you can also [download a release manually](https://github
 var salt = 'saltysalt111',
     input = 'test@test.com';
 
-var hwSaltConfig = { salt: 'saltysalt111' },
-    hwLengthConfig = { wordLength: [3,7] };
+var hwSaltOptions = { salt: 'saltysalt111' },
+    hwLengthOptions = { wordLength: [3,7] };
 
 var hw = hashwords(),
-    hwSalt = hashwords(hwSaltConfig),
-    hwLength = hashwords(hwLengthConfig
+    hwSalt = hashwords(hwSaltOptions),
+    hwLength = hashwords(hwLengthOptions)
 
 hw.hash(input);
 // ['Rundown', 'Job', 'Snake']
