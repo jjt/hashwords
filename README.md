@@ -12,26 +12,44 @@ Takes input strings and hashes them to output strings or arrays of the form "[ad
 Bower is prefered, but you can also [download a release manually](https://github.com/jjt/hashwords/releases).
 
 ### Usage:
-```
+```js
 // Node.js:
 // var hashwords = require('hashwords');
 
 // Browser:
 // <script src="path/to/hashwords.min.js"></script>
- 
-var hw = hashwords(),
-    salt = 'saltysalt111',
-    hwSalt = hashwords({salt: salt}),
+
+// Constructor takes optional options object:
+//   salt: (str)
+//     Salt to apply with every call to hash/hashStr
+//     default: ""
+//
+//   wordLength: (number | [number, number])
+//     Restrict length of corpus words to exactly number or within [min, max]
+//     default: false
+//
+//   corpus: (object)
+//     Keys represent part of speech, values are [str, str, ...]
+//     default: {
+//       noun: ["apple", "bat", ...],
+//       adj: ["airy", "beautiful", ...]
+//     }
+
+var salt = 'saltysalt111',
     input = 'test@test.com';
 
+var hwSaltConfig = { salt: 'saltysalt111' },
+    hwLengthConfig = { wordLength: [3,7] };
+
+var hw = hashwords(),
+    hwSalt = hashwords(hwSaltConfig),
+    hwLength = hashwords(hwLengthConfig
+
 hw.hash(input);
-// ['Rundown', 'Job', 'Snake'] 
+// ['Rundown', 'Job', 'Snake']
 
 hw.hashStr(input);
 // 'Rundown Job Snake'
-
-hwSalt.hashStr(input);
-// 'Annual Lobby District'
 
 hw.random();
 // Something like
@@ -40,4 +58,10 @@ hw.random();
 hw.randomStr();
 // Something like
 // 'Plain Shirt Facility'
+
+hwSalt.hashStr(input);
+// 'Annual Lobby District'
+
+hwLength.hashStr(input):
+// 'Second Length Staff'
 ```
