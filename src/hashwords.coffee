@@ -1,6 +1,10 @@
 md5 = require('./md5').md5
 adjectives = require('./adjectives')
 nouns = require('./nouns')
+_defaults = require('lodash/object/defaults')
+_isArray = require('lodash/lang/isArray')
+_isNumber = require('lodash/lang/isNumber')
+_inRange = require('lodash/number/inRange')
 
 
 upperFirst = (str) ->
@@ -23,33 +27,60 @@ randomInt = (min, max) ->
 intFromHexStr = (hex, index=0, len=8)->
   parseInt hex.substr(index*len, len), 16
 
+filterStrArrayByLen = (arr, len) ->
+  if not (_isNumber(len) or _isArray(len))
+    return arr
+
+  arr.filter (str) ->
+    if _isArray len
+      [start, end] = len
+    else
+      start = end = len
+    _inRange str.length, start, end + 1
 
 module.exports = (opts = {})->
-  salt = opts.salt or ''
-  strPattern = opts.strPattern or "adj noun noun"
-  corpus = opts.corpus or noun: nouns, adj: adjectives
+  _options = _defaults opts,
+    salt: ''
+    strPattern: "adj noun noun"
+    wordLength: false
+    corpus:
+      noun: nouns
+      adj: adjectives
 
-  tokensFromString = (hash, pattern = strPattern) ->
-    corpusKeys = pattern.split ' '
+  filteredCorpus = () ->
+
+  tokensFromString = (hash, opts={}) ->
+    options = _defaults opts,
+      strPattern: _options.strPattern
+      wordLength: _options.wordLength
+
+    corpusKeys = options.strPattern.split ' '
+
     # We need 8 hex chars per token, so make sure hash is long enough
     while hash.length < corpusKeys.length * 8
       hash += md5 hash
+
     corpusKeys.map (key, index)->
-        upperFirst arrayElFromInt corpus[key], intFromHexStr(hash, index)
-    
-  hash = (input) ->
+      localCorpus = _options.corpus[key]
+      if options.wordLength
+        localCorpus = filterStrArrayByLen localCorpus, options.wordLength
+
+      upperFirst arrayElFromInt localCorpus, intFromHexStr(hash, index)
+
+  hash = (input, salt=_options.salt, options={}) ->
     # Get md5 of input
     inputHash = md5(salt + input)
-    tokensFromString inputHash
+    tokensFromString inputHash, options
 
-  random = (input) ->
-    inputHash = md5 '' + salt + Math.random() + Math.random()
-    tokensFromString inputHash
+  random = (input, options) ->
+    # Double random for input length purposes
+    inputHash = md5 '' + _options.salt + Math.random() + Math.random()
+    tokensFromString inputHash, options
 
-  hashStr = (input) ->
-    hash(input).join ' '
+  hashStr = (input, options) ->
+    hash(input, options).join ' '
 
-  randomStr = (input) ->
-    random(input).join ' '
+  randomStr = (input, options) ->
+    random(input, options).join ' '
 
-  { hash, hashStr, random, randomStr, corpus, salt}
+  { hash, hashStr, random, randomStr, _options}
