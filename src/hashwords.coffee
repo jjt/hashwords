@@ -1,10 +1,10 @@
 md5 = require('./md5').md5
 adjectives = require('./adjectives')
 nouns = require('./nouns')
-_defaults = require('lodash/object/defaults')
-_isArray = require('lodash/lang/isArray')
-_isNumber = require('lodash/lang/isNumber')
-_inRange = require('lodash/number/inRange')
+_defaults = require('lodash/defaults')
+_isArray = require('lodash/isArray')
+_isNumber = require('lodash/isNumber')
+_inRange = require('lodash/inRange')
 
 
 upperFirst = (str) ->
