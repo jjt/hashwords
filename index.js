@@ -1,4 +1,4 @@
-hashwords = require('./lib/hashwords'); 
+var hashwords = require('./lib/hashwords'); 
 if(typeof window !== 'undefined')
   window.hashwords = hashwords;
 else
