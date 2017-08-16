@@ -6,10 +6,7 @@ Takes input strings and hashes them to output strings or arrays of the form "[ad
 ### Install for Node.js
     $> npm install --save hashwords
 
-### Install for the Browser
-    $ bower install --save hashwords
-
-Bower is prefered, but you can also [download a release manually](https://github.com/jjt/hashwords/releases).
+Package managers are the preferred install method, but you can also [download a release manually](https://github.com/jjt/hashwords/releases).
 
 ### Usage:
 ```js
