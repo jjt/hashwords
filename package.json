@@ -12,7 +12,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "lodash": "^4.15.0"
+    "lodash": "^4.17.0"
   },
   "devDependencies": {
     "browserify": "^4.1.5",
