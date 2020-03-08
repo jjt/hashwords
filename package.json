@@ -12,17 +12,17 @@
   },
   "main": "index.js",
   "dependencies": {
-    "lodash": "^4.17.0"
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
-    "browserify": "^4.1.5",
-    "coffee-script": "^1.7.1",
-    "coffeeify": "^0.6.0",
-    "gulp": "^3.6.2",
-    "gulp-coffee": "^1.4.3",
-    "gulp-load-plugins": "^0.5.1",
-    "gulp-util": "^2.2.14",
-    "uglifyify": "^2.4.0",
-    "vinyl-source-stream": "^0.1.1"
+    "browserify": "^16.5.0",
+    "coffeeify": "^3.0.1",
+    "coffeescript": "^2.5.1",
+    "fancy-log": "^1.3.3",
+    "gulp": "^4.0.2",
+    "gulp-coffee": "^3.0.3",
+    "gulp-load-plugins": "^2.0.2",
+    "uglifyify": "^5.0.2",
+    "vinyl-source-stream": "2.0.0"
   }
 }
