@@ -37,4 +37,6 @@ gulp.task 'browserify-debug', gulp.series ()->
 
 gulp.task 'browserify', gulp.series ['browserify-min', 'browserify-debug']
 
+gulp.task 'build', gulp.series ['coffee', 'browserify']
+
 gulp.task 'default', gulp.series ['coffee', 'browserify', 'watch']

@@ -1,4 +1,9 @@
 # HASHWORDS
+<div align="center">
+	<a href="https://github.com/quenty/hashwords/actions">
+		<img src="https://github.com/quenty/hashwords/workflows/Node.js CI/badge.svg" alt="Actions Status" />
+	</a>
+</div>
 
 Takes input strings and hashes them to output strings or arrays of the form "[adjective]
 [noun] [noun]". Intended to provide memorable hashes for users or items. Inspired by Gfycat.
