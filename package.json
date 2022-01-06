@@ -1,14 +1,14 @@
 {
-  "name": "hashwords",
+  "name": "@quenty/hashwords",
   "version": "1.0.0",
-  "description": "Human-readable hashes",
+  "description": "Forked copy of hashwords. Human-readable hashes",
   "keywords": [
     "hash"
   ],
   "author": "jason@jasontrill.com",
   "repository": {
     "type": "git",
-    "url": "git://github.com/jjt/hashwords.git"
+    "url": "git://github.com/quenty/hashwords.git"
   },
   "main": "index.js",
   "dependencies": {
@@ -27,5 +27,8 @@
   "scripts": {
     "build": "gulp build",
     "test": "node ./test/test.js"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
